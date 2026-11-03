@@ -1,0 +1,7 @@
+.DS_Store
+*.log
+*.dta
+*.gph
+data/raw/
+data/processed/
+results/

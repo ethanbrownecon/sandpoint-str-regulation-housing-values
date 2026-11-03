@@ -64,8 +64,25 @@ comparison and the model specification.
 
 ## Reproducibility status
 
-This repository intentionally contains a concise project summary only. The
-paper document, underlying datasets, and analysis scripts are not included.
-Replication materials should be published only after the estimation sample,
-specification, inference settings, and reported results have been reconciled
-and documented.
+The Stata analysis scripts are in [`analysis/`](analysis/):
+
+1. `01_prepare_panel.do` cleans a separately obtained ACS extract and writes a
+   balanced 2010–2023 city panel.
+2. `02_estimate_sdid.do` selects comparison cities based on pre-policy
+   residualized outcome patterns and estimates the SDID model.
+
+Run both scripts from the repository root. The input file expected by the
+first script is
+`data/raw/acs_named_places_2009_2023_expanded.csv`; it is not included in this
+repository. Install Stata 17 or later and the Stata `sdid` command
+(`ssc install sdid`) before running the estimator. Generated data and results
+are ignored by Git.
+
+The paper document and analysis datasets are not included. The cleaning
+filters were checked against the saved panel and reproduce its 198,198
+city-year rows; an independent check of the donor-selection calculation
+recovered the same 18-city comparison pool as the saved project output. The
+Stata scripts and SDID estimates have not been run end-to-end in this
+environment, and the estimates have not been reconciled against all saved
+outputs. Treat this as a documented starting point, not as a verified
+replication package.
